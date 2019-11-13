@@ -5,7 +5,7 @@ import java.util.Collections;
 public class Lollipop {
 
 	Graph graph;
-	
+
 	public Lollipop(int order) {
 		graph = new Graph(order);
 		ArrayList<Integer> permutation = new ArrayList<>(order);
@@ -18,11 +18,9 @@ public class Lollipop {
 		for (int i = t; i < order; i++)
 			for (int j = i+1; j < order; j++)
 				graph.addEdge(new Edge(permutation.get(i),
-									   permutation.get(j),
-									   0
-									   )
+								permutation.get(j),
+								0
+						)
 				);
 	}
-	
-	
 }

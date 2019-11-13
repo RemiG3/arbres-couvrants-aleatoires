@@ -17,7 +17,7 @@ public class Graph implements Iterable<Edge>{
 	ArrayList<LinkedList<Arc>> outAdjacency;
 	
 	public boolean isVertex(int index) {
-	    // à remplir
+	    return !(adjacency.get(index) == null) || !(inAdjacency.get(index) == null) || !(outAdjacency.get(index) == null);
 	}
 	
 	public <T> ArrayList<LinkedList<T>> makeList(int size) {
@@ -29,11 +29,14 @@ public class Graph implements Iterable<Edge>{
 	}
 	
 	public Graph(int upperBound) {
-	    // à remplir
+	    adjacency = makeList(upperBound);
+	    inAdjacency = makeList(upperBound);
+	    outAdjacency = makeList(upperBound);
 	}
 	
 	public void addVertex(int indexVertex) {
-	    // à remplir
+		if (!isVertex(indexVertex))
+	    	adjacency.set(indexVertex, null);
 	}
 	
 	public void ensureVertex(int indexVertex) {
@@ -41,11 +44,34 @@ public class Graph implements Iterable<Edge>{
 	}	
 	
 	public void addArc(Arc arc) {
-	    // à remplir
+	    inAdjacency.get(arc.getDest()).add(arc);
+	    outAdjacency.get(arc.getSource()).add(arc);
 	}
 	
 	public void addEdge(Edge e) {
-	    // à remplir
+	    adjacency.get(e.getSource()).add(e);
+	    adjacency.get(e.getDest()).add(e);
 	}
-	
+
+	@Override
+	public Iterator<Edge> iterator() {
+		return null;
+	}
+
+	private class EdgeIterator implements Iterator{
+		int position = 0;
+
+		@Override
+		public boolean hasNext() {
+			return position < adjacency.size();
+		}
+
+		@Override
+		public Object next() {
+			if(hasNext())
+				return null;
+			else
+				return null;
+		}
+	}
 }
