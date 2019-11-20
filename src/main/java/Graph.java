@@ -57,6 +57,7 @@ public class Graph implements Iterable<Edge>{
 		ensureVertex(e.source);
 		adjacency.get(e.dest).add(e);
 		adjacency.get(e.source).add(e);
+		edgeCardinality++;
 		
 		addArc(new Arc(e,false)); 
 		addArc(new Arc(e,true));
