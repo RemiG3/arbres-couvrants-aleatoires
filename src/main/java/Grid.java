@@ -1,7 +1,5 @@
 package src.main.java;
-
 import java.util.BitSet;
-
 
 public class Grid {
 

@@ -1,9 +1,11 @@
 package src.main.java;
-
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 
 public class MainStub {
@@ -34,11 +36,11 @@ public class MainStub {
 		grid = new Grid(1920/11,1080/11);
 		Graph graph = grid.graph;
 		
-//		src.main.java.Graph graph = new src.main.java.Complete(400).graph;
+//		Graph graph = new Complete(400).graph;
 		
-//		src.main.java.Graph graph = new src.main.java.ErdosRenyi(1_000, 100).graph;
+//		Graph graph = new ErdosRenyi(1_000, 100).graph;
 
-//		src.main.java.Graph graph = new src.main.java.Lollipop(1_000).graph;
+//		Graph graph = new Lollipop(1_000).graph;
 		
 		int nbrOfSamples = 10;
 		int diameterSum = 0;
