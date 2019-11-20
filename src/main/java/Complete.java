@@ -11,8 +11,4 @@ public class Complete {
 				graph.addEdge(new Edge(i,j,0));
 		
 	}
-	
-	
-	
-	
 }
