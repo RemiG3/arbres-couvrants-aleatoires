@@ -9,7 +9,7 @@ public class BreadthFirstSearch {
         LinkedList<Integer> parcoursSommets = new LinkedList<>();
         ArrayList<String> couleurs = new ArrayList<>();
         for (int i = 0 ; i < graph.order ; ++i){
-            couleurs.set(i,"BLANC");
+            couleurs.add("BLANC");
         }
         parcoursSommets.addLast(s);
         couleurs.set(s,"GRIS");

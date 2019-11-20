@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 
-public class MainStub {
+public class Main {
 
 	@SuppressWarnings("unused")
 	private final static Random gen = new Random();
@@ -16,13 +16,18 @@ public class MainStub {
 	public static ArrayList<Edge> genTree(Graph graph) {
 		ArrayList<Edge> randomTree;
 		
-		// TOOO : modifier l'algorithme utiliser ici.
+		// TODO : modifier l'algorithme utiliser ici.
+		for(Edge edge : graph){
+			edge.weight = gen.nextDouble();
+		}
+
+		randomTree = Prim.prim(graph,0);
 		
 		// Non-random BFS
-		ArrayList<Arc> randomArcTree = 
+		/*ArrayList<Arc> randomArcTree =
 				BreadthFirstSearch.generateTree(graph,0);
 		randomTree = new ArrayList<>();
-		for (Arc a : randomArcTree) randomTree.add(a.support);
+		for (Arc a : randomArcTree) randomTree.add(a.support);*/
 	
 		
 		
@@ -33,7 +38,7 @@ public class MainStub {
 	public static void main(String argv[]) throws InterruptedException {
 
 		Grid grid = null;
-		grid = new Grid(1920/11,1080/11);
+		grid = new Grid(5,5);
 		Graph graph = grid.graph;
 		
 //		Graph graph = new Complete(400).graph;
@@ -57,7 +62,7 @@ public class MainStub {
 			randomTree= genTree(graph);
 
 			rooted = new RootedTree(randomTree,0);
-//			rooted.printStats();
+			rooted.printStats();
 			diameterSum = diameterSum + rooted.getDiameter();
 			eccentricitySum = eccentricitySum + rooted.getAverageEccentricity();
 			wienerSum = wienerSum + rooted.getWienerIndex();
