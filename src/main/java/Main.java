@@ -38,7 +38,7 @@ public class Main {
 	public static void main(String argv[]) throws InterruptedException {
 
 		Grid grid = null;
-		grid = new Grid(5,5);
+		grid = new Grid(1920/11,1080/11); // 1920/11, 1080/11
 		Graph graph = grid.graph;
 		
 //		Graph graph = new Complete(400).graph;

@@ -26,7 +26,9 @@ public class Prim {
                     }
                 }
             }
-            sommetsAjoutables.remove(edgeCoutMin.dest);
+            System.out.println(edgeCoutMin.dest);
+            System.out.println(sommetsAjoutables.toString());
+            sommetsAjoutables.remove((Integer) edgeCoutMin.dest);
             sommetsAjoutes.add(edgeCoutMin.dest);
             arbreCouvrant.add(edgeCoutMin);
         }
