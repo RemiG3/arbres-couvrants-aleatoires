@@ -11,6 +11,7 @@ public class Prim {
         priorityList.addAll(graph.neighbours(s));
         sommetsAjoutes.add(s);
 
+        //Edge edgeMin = null;
         while(sommetsAjoutes.size() != graph.order){
             Edge edgeMin = extractMin(priorityList,sommetsAjoutes);
             arbreCouvrant.add(edgeMin);
@@ -20,16 +21,15 @@ public class Prim {
                     priorityList.add(edge);
                 }
             }
-            priorityList.addAll(graph.neighbours(edgeMin.dest));
         }
-
+        //arbreCouvrant.add(edgeMin);
         return arbreCouvrant;
     }
 
-    private static Edge extractMin(LinkedList<Edge> priorityList, List<Integer> sommetsDejaPresents){
+    private static Edge extractMin(LinkedList<Edge> priorityList, List<Integer> sommetDejaPresents){
         Edge edgeMin = new Edge(0,0,Double.MAX_VALUE);
         for (Edge edge : priorityList) {
-            if (edge.weight < edgeMin.weight){
+            if (edge.weight < edgeMin.weight && !sommetDejaPresents.contains(edge.dest)){
                 edgeMin = edge;
             }
         }
