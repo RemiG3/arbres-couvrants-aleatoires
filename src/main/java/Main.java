@@ -21,7 +21,7 @@ public class Main {
 			edge.weight = gen.nextDouble();
 		}
 
-		randomTree = Prim.prim(graph,0);
+		randomTree = Prim.newPrim(graph,0);
 		
 		// Non-random BFS
 		/*ArrayList<Arc> randomArcTree =
@@ -38,7 +38,7 @@ public class Main {
 	public static void main(String argv[]) throws InterruptedException {
 
 		Grid grid = null;
-		grid = new Grid(1920/11,1080/11); // 1920/11, 1080/11
+		grid = new Grid(5,5); // 1920/11, 1080/11
 		Graph graph = grid.graph;
 		
 //		Graph graph = new Complete(400).graph;
