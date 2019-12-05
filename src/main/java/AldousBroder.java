@@ -10,11 +10,9 @@ public class AldousBroder {
 
     public static ArrayList<Edge> aldousBroder(Graph graph) {
         ArrayList<Edge> listToReturn = new ArrayList<>();
-        LinkedList<Edge> sommetsToReturn = new LinkedList<>();
+        ArrayList<Integer> sommetsToReturn = new ArrayList<>();
         LinkedList<Edge> sommets = new LinkedList<>();
         LinkedList<Edge> voisins = new LinkedList<>();
-
-        System.out.println("IN : " + graph.order);
 
         for (Edge edge : graph){
             sommets.add(edge);
@@ -22,32 +20,26 @@ public class AldousBroder {
 
         Collections.shuffle(sommets);
         Edge sommetActuel = sommets.removeFirst();
-        sommetsToReturn.add(sommetActuel);
+        listToReturn.add(sommetActuel);
+        sommetsToReturn.add(sommetActuel.getDest());
 
-        while(sommets.size() > 0){
+        while(sommetsToReturn.size() < graph.order-1){
 
-            for(Edge edge : graph.neighbours(sommetActuel.getDest())){
-                if((! sommetsToReturn.contains(edge)) && (! voisins.contains(edge)))
-                    voisins.add(edge);
-            }
-
-            for(Edge edge : graph.neighbours(sommetActuel.getSource())){
-                if((! sommetsToReturn.contains(edge)) && (! voisins.contains(edge)))
-                    voisins.add(edge);
-            }
-
+            voisins.addAll(graph.neighbours(sommetActuel.getDest()));
+            voisins.addAll(graph.neighbours(sommetActuel.getSource()));
 
             Collections.shuffle(voisins);
             sommetActuel = voisins.removeFirst();
-            sommets.remove(sommetActuel);
-            sommetsToReturn.add(sommetActuel);
-            System.out.println(voisins.size());
+
+            if(! sommetsToReturn.contains(sommetActuel.getDest())){
+                sommetsToReturn.add(sommetActuel.getDest());
+                listToReturn.add(sommetActuel);
+            }
+
+            voisins = new LinkedList<>();
         }
 
-        System.out.println("OUT : " + sommetsToReturn.size());
-        System.out.println("OUT : " + listToReturn.size());
-        System.out.println(sommetActuel.toString());
-        exit(0);
+        return listToReturn;
 
 
         /*ArrayList<Edge> listToReturn = new ArrayList<>();
@@ -85,7 +77,7 @@ public class AldousBroder {
         System.out.println("OUT : " + listToReturn.size());
         exit(0);*/
 
-        return listToReturn;
+        //return listToReturn;
     }
 
 }
