@@ -2,6 +2,8 @@ package src.main.java;
 
 import java.util.*;
 
+import static java.lang.System.exit;
+
 public class Kruskal {
 
     public static ArrayList<Edge> kruskal(Graph graph){
@@ -14,8 +16,9 @@ public class Kruskal {
         }
 
         Collections.sort(edgeList);
+        System.out.println(graph.order);
 
-        while(!edgeList.isEmpty() && sommetsAjoutes.size() != graph.order){
+        while(!edgeList.isEmpty()){// && sommetsAjoutes.size() != graph.order){ (useless)
             Edge currentEdge = edgeList.removeFirst();
             if (!sommetsAjoutes.contains(currentEdge.dest) && !sommetsAjoutes.contains(currentEdge.source)){
                 sommetsAjoutes.add(currentEdge.dest);
@@ -24,13 +27,23 @@ public class Kruskal {
             }
             else if(!sommetsAjoutes.contains(currentEdge.dest)) {
                 sommetsAjoutes.add(currentEdge.dest);
+                arbreCouvrant.add(currentEdge); // Added
             }
+            else if(!sommetsAjoutes.contains(currentEdge.source)) { // Added
+                sommetsAjoutes.add(currentEdge.source); // Added
+                arbreCouvrant.add(currentEdge); // Added
+            }
+
             else if (sommetsAjoutes.contains(currentEdge.dest) && sommetsAjoutes.contains(currentEdge.source)){
                 ArrayList<Edge> temporaryArbreCouvrant = new ArrayList<>(arbreCouvrant);
                 if (!containsCycle(temporaryArbreCouvrant,currentEdge,graph))
                     arbreCouvrant.add(currentEdge);
             }
         }
+
+        System.out.println(arbreCouvrant.size());
+        //exit(0);
+
         return arbreCouvrant;
     }
 
