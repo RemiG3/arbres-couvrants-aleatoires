@@ -21,14 +21,17 @@ public class Main {
 			edge.weight = gen.nextDouble();
 		}
 
-		randomTree = Prim.newPrim(graph,0);
+		//randomTree = Prim.newPrim(graph,0);
+
+		randomTree = Kruskal.kruskal(graph);
 		
 		// Non-random BFS
 		/*ArrayList<Arc> randomArcTree =
 				BreadthFirstSearch.generateTree(graph,0);
 		randomTree = new ArrayList<>();
 		for (Arc a : randomArcTree) randomTree.add(a.support);*/
-	
+
+		//randomTree = BreadthFirstSearch.generateRandomTree(graph);
 		
 		
 		return randomTree;
@@ -38,7 +41,7 @@ public class Main {
 	public static void main(String argv[]) throws InterruptedException {
 
 		Grid grid = null;
-		grid = new Grid(5,5); // 1920/11, 1080/11
+		grid = new Grid(10,10); // 1920/11, 1080/11
 		Graph graph = grid.graph;
 		
 //		Graph graph = new Complete(400).graph;
