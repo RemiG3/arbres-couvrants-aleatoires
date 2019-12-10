@@ -21,8 +21,6 @@ public class Main {
 			edge.weight = gen.nextDouble();
 		}
 
-		//randomTree = Prim.newPrim(graph,0);
-
 		randomTree = Kruskal.kruskal(graph);
 		
 		// Non-random BFS
@@ -41,7 +39,7 @@ public class Main {
 	public static void main(String argv[]) throws InterruptedException {
 
 		Grid grid = null;
-		grid = new Grid(1920/22, 1080/22); // 1920/11, 1080/11
+		grid = new Grid(1920/11, 1080/11); // 1920/11, 1080/11
 		Graph graph = grid.graph;
 		
 //		Graph graph = new Complete(400).graph;
