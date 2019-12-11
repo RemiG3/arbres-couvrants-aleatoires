@@ -11,7 +11,6 @@ Average number of leaves: 1803
 Average number of degree 2 vertices: 1355
 Average computation time: 46ms
 
-
 Aldous-Broder :
 
 On 5 samples:
@@ -21,7 +20,6 @@ Average diameter: 244
 Average number of leaves: 1177
 Average number of degree 2 vertices: 2289
 Average computation time: 919ms
-
 
 Kruskal :
 
@@ -46,5 +44,5 @@ Average computation time: 197235ms
 
 Résultats :
 
-
-
+Kruskal et ByRemovingCycle sont très proches et donnent des arbres couvrants similaires
+Random BreathFirstSearch donne des arbres plus compacts, logique au vu du principe de l'algo
