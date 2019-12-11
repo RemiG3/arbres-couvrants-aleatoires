@@ -17,7 +17,6 @@ public class BreadthFirstSearch {
         while (parcoursSommets.size() != 0){
             s = parcoursSommets.removeFirst();
             for (Arc voisin : graph.outNeighbours(s)) {
-                //System.out.println(graph.outNeighbours(s));
                 if (couleurs.get(voisin.getDest()).equals("BLANC")){
                     parcoursSommets.addLast(voisin.getDest());
                     couleurs.set(voisin.getDest(),"GRIS");

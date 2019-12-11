@@ -1,11 +1,8 @@
 package src.main.java;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 
 public class Main {
@@ -16,23 +13,23 @@ public class Main {
 	public static ArrayList<Edge> genTree(Graph graph) {
 		ArrayList<Edge> randomTree;
 		
-		// TODO : modifier l'algorithme utiliser ici.
 		for(Edge edge : graph){
 			edge.weight = gen.nextDouble();
 		}
 
-		//randomTree = Prim.newPrim(graph,0);
+		/*Decommentez la ligne de l'algorithme que vous voulez utiliser */
 
-		randomTree = Kruskal.kruskal(graph);
+		//randomTree = Prim.newPrim(graph,0);
+		//randomTree = Kruskal.kruskal(graph);
+		randomTree = AldousBroder.aldousBroder(graph);
+		//randomTree = ByRemovingCycle.byRemovingCycle(graph);
+		//randomTree = BreadthFirstSearch.generateRandomTree(graph);
 		
 		// Non-random BFS
 		/*ArrayList<Arc> randomArcTree =
 				BreadthFirstSearch.generateTree(graph,0);
 		randomTree = new ArrayList<>();
 		for (Arc a : randomArcTree) randomTree.add(a.support);*/
-
-		//randomTree = BreadthFirstSearch.generateRandomTree(graph);
-		
 		
 		return randomTree;
 	}
@@ -41,7 +38,7 @@ public class Main {
 	public static void main(String argv[]) throws InterruptedException {
 
 		Grid grid = null;
-		grid = new Grid(1920/22, 1080/22); // 1920/11, 1080/11
+		grid = new Grid(1920/21, 1080/21); // 1920/11, 1080/11
 		Graph graph = grid.graph;
 		
 //		Graph graph = new Complete(400).graph;
@@ -50,7 +47,7 @@ public class Main {
 
 //		Graph graph = new Lollipop(1_000).graph;
 		
-		int nbrOfSamples = 10;
+		int nbrOfSamples = 5;
 		int diameterSum = 0;
 		double eccentricitySum = 0;
 		long wienerSum = 0;
