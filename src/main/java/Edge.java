@@ -1,5 +1,7 @@
 package src.main.java;
 
+import java.util.Objects;
+
 public class Edge implements Comparable<Edge> {
 
 	protected int source;
@@ -29,5 +31,19 @@ public class Edge implements Comparable<Edge> {
 	public int getDest() {
 		return this.dest;
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Edge edge = (Edge) o;
+		return source == edge.source &&
+				dest == edge.dest &&
+				Double.compare(edge.weight, weight) == 0;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(source, dest, weight);
+	}
 }

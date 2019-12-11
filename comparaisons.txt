@@ -1,0 +1,50 @@
+PARAMETRES DES TESTS : nbOfSamples = 5, taille du graphe = (1920/21, 1080/21)
+
+
+Random BreathFirstSearch :
+
+On 5 samples:
+Average eccentricity: 53.39995690583926
+Average wiener index: 938020302
+Average diameter: 213
+Average number of leaves: 1803
+Average number of degree 2 vertices: 1355
+Average computation time: 46ms
+
+
+Aldous-Broder :
+
+On 5 samples:
+Average eccentricity: 66.03339797457446
+Average wiener index: 1169214595
+Average diameter: 244
+Average number of leaves: 1177
+Average number of degree 2 vertices: 2289
+Average computation time: 919ms
+
+
+Kruskal :
+
+On 5 samples:
+Average eccentricity: 101.84675716440422
+Average wiener index: 1633021090
+Average diameter: 389
+Average number of leaves: 1416
+Average number of degree 2 vertices: 1994
+Average computation time: 1756ms
+
+ByRemovingCycle :
+
+On 5 samples:
+Average eccentricity: 101.39099332040507
+Average wiener index: 1577049686
+Average diameter: 384
+Average number of leaves: 1594
+Average number of degree 2 vertices: 1729
+Average computation time: 197235ms
+
+
+Résultats :
+
+
+

@@ -57,11 +57,16 @@ public class Prim {
                     }
                 }
             }
-            System.out.println(edgeCoutMin.dest);
-            System.out.println(sommetsAjoutables.toString());
-            sommetsAjoutables.remove((Integer) edgeCoutMin.dest);
-            sommetsAjoutes.add(edgeCoutMin.dest);
-            arbreCouvrant.add(edgeCoutMin);
+
+            if(edgeCoutMin.dest != -1){
+                //System.out.println(edgeCoutMin.dest);
+                //System.out.println(sommetsAjoutables.toString());
+                sommetsAjoutables.remove((Integer) edgeCoutMin.dest);
+                sommetsAjoutes.add(edgeCoutMin.dest);
+                arbreCouvrant.add(edgeCoutMin);
+            } else {
+                break;
+            }
         }
         return arbreCouvrant;
     }

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 
-public class ByRemovingCircle {
+public class ByRemovingCycle {
 
-    public static ArrayList<Edge> byRemovingCircle(Graph graph){
+    public static ArrayList<Edge> byRemovingCycle(Graph graph){
         ArrayList<Edge> arretesParcourus = new ArrayList<>();
         ArrayList<Edge> listToReturn = new ArrayList<>();
         LinkedList<Integer> parcoursSommets = new LinkedList<>();
